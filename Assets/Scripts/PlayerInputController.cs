@@ -1,15 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerInputController : MonoBehaviour
 {
+    public float invincibleTime;
     public float jumpSpeed;
     public float forwardSpeed;
     public bool isInvincible;
-    public float invincibleTime;
     public bool isDead;
     private Rigidbody2D rb;
     private PlayerInputActions playerInputActions;

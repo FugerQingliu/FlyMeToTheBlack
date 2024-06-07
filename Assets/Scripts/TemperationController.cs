@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,9 +9,9 @@ public class TemperationController : MonoBehaviour
 {
     private PlayerInputActions playerInputActions;
     private PlayerInputController pic;
+    public float temperation;
     public float coolingSpeed;
     public float warmingSpeed;
-    public float temperation;
     public float minTemperation;
     public float maxTemperation;
     public bool isWaterCooling;

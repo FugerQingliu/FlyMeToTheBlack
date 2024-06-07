@@ -11,7 +11,7 @@ public class MegneticPower : CollectionsController
     {
         if (!(tc.isMegnetic))
         {
-            cc = tc.GetComponent<CapsuleCollider2D>();
+            cc = tc.GetComponentInChildren<CapsuleCollider2D>();
             cc.size = new Vector2(cc.size.x, cc.size.y * multiplyingPower);
             tc.maxTemperation *= maxTemperatureReductionPower;
             tc.isMegnetic = true;

@@ -8,9 +8,12 @@ public abstract class CollectionsController : MonoBehaviour
     protected PlayerInputController pic;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        tc = collision.GetComponent<TemperationController>();
-        pic = collision.GetComponent<PlayerInputController>();
-        SpecialEffects();
+        if (collision.tag == "CollectArea")
+        {
+            tc = collision.GetComponentInParent<TemperationController>();
+            pic = collision.GetComponentInParent<PlayerInputController>();
+            SpecialEffects();
+        }
     }
     abstract public void SpecialEffects();
 }
