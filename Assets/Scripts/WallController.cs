@@ -10,7 +10,8 @@ public class WallController : MonoBehaviour
         if(collision.tag == "Player")
         {
             playerInputController = collision.GetComponent<PlayerInputController>();
-            playerInputController.Die();
+            if(!(playerInputController.isDead))
+                playerInputController.Die();
         }
     }
 }

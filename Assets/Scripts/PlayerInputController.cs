@@ -10,8 +10,9 @@ public class PlayerInputController : MonoBehaviour
     public float forwardSpeed;
     public bool isInvincible;
     public float invincibleTime;
+    public bool isDead;
     private Rigidbody2D rb;
-    public PlayerInputActions playerInputActions;
+    private PlayerInputActions playerInputActions;
     private void Awake()
     {
         playerInputActions = new PlayerInputActions();
@@ -33,21 +34,16 @@ public class PlayerInputController : MonoBehaviour
     private void Jump(InputAction.CallbackContext context)
     {
         rb.velocity = new Vector3(rb.velocity.x, jumpSpeed, 0);
-        Debug.Log("Jump");
+        //Debug.Log("Jump");
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Collections")
-        {
-            isInvincible = true;
-            Destroy(collision.gameObject);
-            StartCoroutine(InvincibleCounter());
-        }
-    }
+
     public void Die()
     {
-        if(!isInvincible)
+        if (!isInvincible)
+        {
             Debug.Log("Die");
+            isDead = true;
+        }
     }
     private IEnumerator InvincibleCounter()
     {
